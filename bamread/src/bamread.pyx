@@ -4,8 +4,6 @@ import pysam
 
 from libc.stdint cimport int32_t, uint32_t, uint64_t, int8_t, int16_t, uint16_t
 
-# from libcpp.string cimport string
-# from libcpp.vector cimport vector
 
 cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t filter_flag=1540):
 
