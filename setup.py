@@ -21,17 +21,17 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 lib_dirs = []
 include_dirs = [dir_path + "/bamread/src", dir_path]
 
-# from subprocess import check_output
-#
-# conda_path = check_output("which conda", shell=True).decode().strip()
-# conda_include = []
-# conda_lib = []
-# if conda_path:
-#     conda_base = conda_path.replace("bin/conda", "")
-#     conda_include.append(os.path.join(conda_base, "include"))
-#     conda_lib.append(os.path.join(conda_base, "lib"))
-# lib_dirs.extend(conda_lib)
-# include_dirs.extend(conda_include)
+from subprocess import check_output
+
+conda_path = check_output("which conda", shell=True).decode().strip()
+conda_include = []
+conda_lib = []
+if conda_path:
+    conda_base = conda_path.replace("bin/conda", "")
+    conda_include.append(os.path.join(conda_base, "include"))
+    conda_lib.append(os.path.join(conda_base, "lib"))
+lib_dirs.extend(conda_lib)
+include_dirs.extend(conda_include)
 
 extensions = [
     Extension(

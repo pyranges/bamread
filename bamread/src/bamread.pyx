@@ -1,22 +1,21 @@
 import numpy as np
+import cython
 
 import pysam
 
 from libc.stdint cimport int32_t, uint32_t, uint64_t, int8_t, int16_t, uint16_t
 
+from pysam.libcalignedsegment cimport AlignedSegment
 
+@cython.boundscheck(False)
+@cython.wraparound(False)
+@cython.initializedcheck(False)
 cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t filter_flag=1540):
 
     cdef:
         uint16_t flag
         int32_t start
         int32_t end
-        int32_t length
-        uint32_t is_strand
-        char forward = b"+"
-        char reverse = b"-"
-        char strand
-        int chromosome_id
         uint32_t count = 0
         uint32_t nfound = 0
         long [::1] starts
@@ -24,6 +23,8 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
         int16_t [::1] chromosomes
         int8_t [::1] strands
         uint16_t [::1] flags
+        cdef AlignedSegment a
+
 
     samfile = pysam.AlignmentFile(filename, "rb")
 
@@ -47,6 +48,7 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
 
     strands_arr = np.zeros(count, dtype=np.int8)
     strands = strands_arr
+
 
     for a in samfile:
         flag = a.flag
@@ -78,5 +80,6 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
     chrs = {k: samfile.get_reference_name(k) for k in np.unique(chromosomes)}
     samfile.close()
 
-    return chromosomes_arr, starts_arr, ends_arr, strands_arr, flags_arr, chrs
+    return (chromosomes_arr[:nfound], starts_arr[:nfound], ends_arr[:nfound], strands_arr[:nfound],
+            flags_arr[:nfound], chrs)
 
