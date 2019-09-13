@@ -1,11 +1,15 @@
+# from __future__ import print_function
+
+# import sys
+
 import numpy as np
 import cython
 
 import pysam
 
-from libc.stdint cimport int32_t, uint32_t, uint64_t, int8_t, int16_t, uint16_t
+from libc.stdint cimport int32_t, uint32_t, uint64_t, int8_t, int16_t, uint16_t, int64_t
 
-from pysam.libcalignedsegment cimport AlignedSegment
+# from pysam.libcalignedsegment cimport AlignedSegment
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -14,8 +18,8 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
 
     cdef:
         uint16_t flag
-        int32_t start
-        int32_t end
+        int64_t start
+        int64_t end
         uint32_t count = 0
         uint32_t nfound = 0
         long [::1] starts
@@ -23,7 +27,7 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
         int16_t [::1] chromosomes
         int8_t [::1] strands
         uint16_t [::1] flags
-        cdef AlignedSegment a
+        # cdef AlignedSegment a
 
 
     samfile = pysam.AlignmentFile(filename, "rb")

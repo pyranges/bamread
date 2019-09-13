@@ -10,7 +10,7 @@ __version__ = open("bamread/version.py").readline().split(" = ")[1].replace(
     '"', '').strip()
 macros = []
 
-install_requires = ["scipy", "numpy", "natsort", "cython", "pysam"]
+install_requires = ["scipy", "numpy", "natsort", "cython", "pysam", "pandas"]
 
 compile_options = [
     "-Ofast", "-Wall"
@@ -23,15 +23,15 @@ include_dirs = [dir_path + "/bamread/src", dir_path]
 
 from subprocess import check_output
 
-conda_path = check_output("which conda", shell=True).decode().strip()
-conda_include = []
-conda_lib = []
-if conda_path:
-    conda_base = conda_path.replace("bin/conda", "")
-    conda_include.append(os.path.join(conda_base, "include"))
-    conda_lib.append(os.path.join(conda_base, "lib"))
-lib_dirs.extend(conda_lib)
-include_dirs.extend(conda_include)
+# conda_path = check_output("which conda", shell=True).decode().strip()
+# conda_include = []
+# conda_lib = []
+# if conda_path:
+#     conda_base = conda_path.replace("bin/conda", "")
+#     conda_include.append(os.path.join(conda_base, "include"))
+#     conda_lib.append(os.path.join(conda_base, "lib"))
+# lib_dirs.extend(conda_lib)
+# include_dirs.extend(conda_include)
 
 extensions = [
     Extension(

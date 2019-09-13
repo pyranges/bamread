@@ -1,0 +1,2 @@
+# 0.0.5 (13.09.19)
+- make int64-compatible
