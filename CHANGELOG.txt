@@ -1,2 +1,5 @@
+# 0.0.6 (03.01.20)
+- read more data with bamread.read_bam_full
+
 # 0.0.5 (13.09.19)
 - make int64-compatible
