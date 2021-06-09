@@ -48,6 +48,7 @@ def read_bam_full(f, mapq=0, required_flag=0, filter_flag=1540):
         "Flag": flags,
         "QueryStart": qstarts,
         "QueryEnd": qends,
+        "QuerySequence": query_sequences,
         "Name": query_names,
         "Cigar": cigarstrings,
         "Quality": query_qualities
