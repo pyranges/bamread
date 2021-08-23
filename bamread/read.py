@@ -11,7 +11,7 @@ def read_bam(f, mapq=0, required_flag=0, filter_flag=1540):
     chromosomes = pd.Series(chromosomes).replace(chrmap).astype("category")
     starts = pd.Series(starts)
     ends = pd.Series(ends)
-    strands = pd.Series(strands).replace({16: "+", 0: "-"}).astype("category")
+    strands = pd.Series(strands).replace({16: "-", 0: "+"}).astype("category")
     flags = pd.Series(flags)
 
     return pd.DataFrame({
@@ -31,7 +31,7 @@ def read_bam_full(f, mapq=0, required_flag=0, filter_flag=1540):
     chromosomes = pd.Series(chromosomes).replace(chrmap).astype("category")
     starts = pd.Series(starts)
     ends = pd.Series(ends)
-    strands = pd.Series(strands).replace({16: "+", 0: "-"}).astype("category")
+    strands = pd.Series(strands).replace({16: "-", 0: "+"}).astype("category")
     flags = pd.Series(flags)
     qstarts = pd.Series(qstarts)
     qends = pd.Series(qends)
