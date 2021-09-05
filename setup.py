@@ -1,3 +1,4 @@
+from subprocess import check_output
 import os
 import sys
 
@@ -15,13 +16,12 @@ install_requires = ["scipy", "numpy", "natsort", "cython", "pysam", "pandas"]
 compile_options = [
     "-Ofast", "-Wall"
     # , "-stdlib=libc++"
-]  #, "-frename-registers", "-funroll-loops"] # , "-lgzstream", "-lz"
+]  # , "-frename-registers", "-funroll-loops"] # , "-lgzstream", "-lz"
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 lib_dirs = []
 include_dirs = [dir_path + "/bamread/src", dir_path]
 
-from subprocess import check_output
 
 # conda_path = check_output("which conda", shell=True).decode().strip()
 # conda_include = []
@@ -55,7 +55,7 @@ setup(
     author="Endre Bakken Stovner",
     author_email="endrebak85@gmail.com",
     url="http://github.com/endrebak/bamread",
-    license=["MIT"],
+    license="MIT",
     install_requires=install_requires,
     classifiers=[
         "Programming Language :: Python :: 3",
