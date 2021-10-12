@@ -1,3 +1,6 @@
+# 0.0.13 (12.05.23)
+- allow for more contigs (thanks @timodonnel)
+
 # 0.0.12 (05.09.21)
 - make license in setup.py string (thanks Muhammed Hasan)
 

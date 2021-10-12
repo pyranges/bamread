@@ -24,7 +24,7 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
         uint32_t nfound = 0
         long [::1] starts
         long [::1] ends
-        int16_t [::1] chromosomes
+        int32_t [::1] chromosomes
         int8_t [::1] strands
         uint16_t [::1] flags
 
@@ -46,7 +46,7 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
     ends_arr = np.zeros(count, dtype=long)
     ends = ends_arr
 
-    chromosomes_arr = np.zeros(count, dtype=np.int16)
+    chromosomes_arr = np.zeros(count, dtype=np.int32)
     chromosomes = chromosomes_arr
 
     strands_arr = np.zeros(count, dtype=np.int8)
@@ -100,7 +100,7 @@ cpdef _bamread_all(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t
         uint32_t nfound = 0
         long [::1] starts
         long [::1] ends
-        int16_t [::1] chromosomes
+        int32_t [::1] chromosomes
         int8_t [::1] strands
         uint16_t [::1] flags
         # cdef AlignedSegment a
@@ -129,7 +129,7 @@ cpdef _bamread_all(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t
     qends_arr = np.zeros(count, dtype=long)
     qends = qends_arr
 
-    chromosomes_arr = np.zeros(count, dtype=np.int16)
+    chromosomes_arr = np.zeros(count, dtype=np.int32)
     chromosomes = chromosomes_arr
 
     strands_arr = np.zeros(count, dtype=np.int8)
