@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel", "cython", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bamread"
+version = "0.0.14"
+description = "Read bam files quickly into dataframes in Python"
+readme = "README.md"
+authors = [{ name = "Endre Bakken Stovner", email = "endbak@pm.me" }]
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta", "Environment :: Other Environment",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: Scientific/Engineering"
+]
+keywords = ["bioinformatics", "bam", "pysam"]
+dependencies = ["scipy", "numpy", "natsort", "pysam", "pandas"]
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage="http://github.com/endrebak/bamread"
