@@ -53,6 +53,10 @@ jobs:
       - name: Set up Python environment
         uses: actions/setup-python@v4
         with:
+<<<<<<< HEAD
           python-version: "3.11"
       - name: flake8 Lint
         uses: py-actions/flake8@v2
+=======
+          args: .
+>>>>>>> 0052c2761d62d4e53c602a0d798a6ae4c8885fd6
