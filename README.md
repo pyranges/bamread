@@ -44,3 +44,13 @@ Upload to pypi
 ```bash
 twine upload -r testpypi dist/*
 ```
+
+# Run github actions locally
+
+See [act](https://github.com/nektos/act)
+
+```bash
+act -l # list available jobs
+act -j <job> # run a job
+act pull_request # run jobs triggered upon pull_request
+```
