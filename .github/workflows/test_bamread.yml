@@ -2,7 +2,7 @@ name: Install, lint, and test bamread
 
 # Source: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#using-multiple-python-versions
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   install_and_test:
