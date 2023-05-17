@@ -1,8 +1,0 @@
-
-from bamread.src.bamread import bamread
-
-# TODO: if ck.command line args: add here
-
-if __name__ == "__main__":
-    bamread()
-
