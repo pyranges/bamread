@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0.0", "wheel", "cython", "setuptools_scm[toml]>=6.2"]
+requires = ["setuptools>=59.6.0", "wheel", "cython", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -24,6 +24,9 @@ dependencies = ["scipy", "numpy", "natsort", "pysam", "pandas"]
 
 [project.optional-dependencies]
 dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[tool.setuptools.packages.find]
+where = ["."]
 
 [project.urls]
 Homepage="http://github.com/endrebak/bamread"
