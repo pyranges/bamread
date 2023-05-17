@@ -47,7 +47,7 @@ jobs:
       - run: pip install black
       - run: black --check --diff .
 
-  flake8_lint:
+  flake8:
     runs-on: ubuntu-latest
     name: Lint
     steps:
