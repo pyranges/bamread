@@ -1,3 +1,6 @@
+# 0.0.14/15 (17.05.23)
+- add test data and C/I workflows
+
 # 0.0.13 (12.05.23)
 - allow for more contigs (thanks @timodonnel)
 
