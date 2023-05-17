@@ -11,7 +11,7 @@ See [How to Publish an Open-Source Python Package to PyPI](https://realpython.co
 Install
 
 ```bash
-pip install .
+pip install -e .  # -e flag means editing affects the installed package
 ```
 
 Create sdist and wheel (requires [build](https://pypa-build.readthedocs.io/en/stable/))
