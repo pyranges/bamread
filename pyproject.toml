@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bamread"
-version = "0.0.14"
+version = "0.0.15"
 description = "Read bam files quickly into dataframes in Python"
 readme = "README.md"
 authors = [{ name = "Endre Bakken Stovner", email = "endbak@pm.me" }]
@@ -24,6 +24,9 @@ dependencies = ["scipy", "numpy", "natsort", "pysam", "pandas"]
 
 [project.optional-dependencies]
 dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[tool.setuptools.packages.find]
+where = ["."]
 
 [project.urls]
 Homepage="http://github.com/endrebak/bamread"
