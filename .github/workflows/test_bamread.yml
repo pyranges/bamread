@@ -1,0 +1,56 @@
+name: Install, lint, and test bamread
+
+# Source: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#using-multiple-python-versions
+
+on: [push, pull_request]
+
+jobs:
+  install_and_test:
+    runs-on: ubuntu-latest
+    strategy:
+      # You can use PyPy versions in python-version.
+      # For example, pypy2.7 and pypy3.9
+      matrix:
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Check import sort orders
+        run: |
+          isort . --check
+
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Test
+        run: |
+            pip install .
+            cd tests && python -c "import bamread; print(bamread.read_bam_full('control.bam'))"
+
+  isort:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: isort/isort-action@v1
+
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: psf/black@stable
+        with:
+          args: .
+
+  flake8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pyflakes/pyflakes-action@v1
+        with:
+          args: .
