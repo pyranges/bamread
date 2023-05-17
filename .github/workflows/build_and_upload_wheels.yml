@@ -2,6 +2,9 @@ name: Build and upload to PyPI
 
 # Source: https://raw.githubusercontent.com/pypa/cibuildwheel/main/examples/github-deploy.yml
 
+env:
+  CIBW_SKIP: "cp36-*"
+
 # Build on every branch push, tag push, and pull request change:
 on:
   workflow_dispatch:

@@ -1,1 +1,3 @@
-__version__ = "0.0.15"
+import pkg_resources
+
+__version__ = pkg_resources.get_distribution('bamread').version
