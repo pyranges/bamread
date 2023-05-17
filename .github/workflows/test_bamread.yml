@@ -20,16 +20,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Check import sort orders
-        run: |
-          isort . --check
-
-      - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-
   isort:
     runs-on: ubuntu-latest
     steps:
