@@ -38,7 +38,7 @@ jobs:
         with:
           args: .
 
-  flake8_lint:
+  flake8:
     runs-on: ubuntu-latest
     name: Lint
     steps:
