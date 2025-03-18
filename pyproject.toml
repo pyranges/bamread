@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bamread"
-version = "0.0.16"
+version = "0.0.17"
 description = "Read bam files quickly into dataframes in Python"
 readme = "README.md"
 authors = [{ name = "Endre Bakken Stovner", email = "endbak@pm.me" }]
