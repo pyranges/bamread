@@ -22,8 +22,8 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
         int64_t end
         uint32_t count = 0
         uint32_t nfound = 0
-        int_64t [::1] starts
-        int_64t [::1] ends
+        int64_t [::1] starts
+        int64_t [::1] ends
         int32_t [::1] chromosomes
         int8_t [::1] strands
         uint16_t [::1] flags
@@ -98,8 +98,8 @@ cpdef _bamread_all(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t
         int64_t end
         uint32_t count = 0
         uint32_t nfound = 0
-        int_64t [::1] starts
-        int_64t [::1] ends
+        int64_t [::1] starts
+        int64_t [::1] ends
         int32_t [::1] chromosomes
         int8_t [::1] strands
         uint16_t [::1] flags
