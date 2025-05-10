@@ -22,8 +22,8 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
         int64_t end
         uint32_t count = 0
         uint32_t nfound = 0
-        long [::1] starts
-        long [::1] ends
+        int [::1] starts
+        int [::1] ends
         int32_t [::1] chromosomes
         int8_t [::1] strands
         uint16_t [::1] flags
@@ -40,10 +40,10 @@ cpdef _bamread(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t fil
     flags_arr = np.zeros(count, dtype=np.uint16)
     flags = flags_arr
 
-    starts_arr = np.zeros(count, dtype=long)
+    starts_arr = np.zeros(count, dtype=int)
     starts = starts_arr
 
-    ends_arr = np.zeros(count, dtype=long)
+    ends_arr = np.zeros(count, dtype=int)
     ends = ends_arr
 
     chromosomes_arr = np.zeros(count, dtype=np.int32)
@@ -98,8 +98,8 @@ cpdef _bamread_all(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t
         int64_t end
         uint32_t count = 0
         uint32_t nfound = 0
-        long [::1] starts
-        long [::1] ends
+        int [::1] starts
+        int [::1] ends
         int32_t [::1] chromosomes
         int8_t [::1] strands
         uint16_t [::1] flags
@@ -117,16 +117,16 @@ cpdef _bamread_all(filename, uint32_t mapq=0, uint64_t required_flag=0, uint64_t
     flags_arr = np.zeros(count, dtype=np.uint16)
     flags = flags_arr
 
-    starts_arr = np.zeros(count, dtype=long)
+    starts_arr = np.zeros(count, dtype=int)
     starts = starts_arr
 
-    ends_arr = np.zeros(count, dtype=long)
+    ends_arr = np.zeros(count, dtype=int)
     ends = ends_arr
 
-    qstarts_arr = np.zeros(count, dtype=long)
+    qstarts_arr = np.zeros(count, dtype=int)
     qstarts = qstarts_arr
 
-    qends_arr = np.zeros(count, dtype=long)
+    qends_arr = np.zeros(count, dtype=int)
     qends = qends_arr
 
     chromosomes_arr = np.zeros(count, dtype=np.int32)
